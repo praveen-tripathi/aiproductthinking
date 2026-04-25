@@ -152,6 +152,26 @@ function aipt_customize_register( $wp_customize ) {
 		'section'     => 'aipt_contact_form',
 		'type'        => 'text',
 	) );
+
+	$wp_customize->add_section( 'aipt_about_page', array(
+		'title'       => __( 'About Page', 'aiproductthinking' ),
+		'priority'    => 135,
+		'description' => __( 'Settings for the About page (founder photo, etc.).', 'aiproductthinking' ),
+	) );
+
+	$wp_customize->add_setting( 'aipt_founder_photo', array(
+		'default'           => '',
+		'capability'        => 'edit_theme_options',
+		'sanitize_callback' => 'esc_url_raw',
+		'transport'         => 'refresh',
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'aipt_founder_photo', array(
+		'label'       => __( 'Founder Photo', 'aiproductthinking' ),
+		'description' => __( 'Upload a portrait that will replace the default "PT" monogram on the About page. Square images work best (it will be cropped to a circle, ~96 px).', 'aiproductthinking' ),
+		'section'     => 'aipt_about_page',
+		'settings'    => 'aipt_founder_photo',
+	) ) );
 }
 add_action( 'customize_register', 'aipt_customize_register' );
 
