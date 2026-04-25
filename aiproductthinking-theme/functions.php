@@ -168,7 +168,7 @@ function aipt_customize_register( $wp_customize ) {
 
 	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'aipt_founder_photo', array(
 		'label'       => __( 'Founder Photo', 'aiproductthinking' ),
-		'description' => __( 'Upload a portrait that will replace the default "PT" monogram on the About page. Square images work best (it will be cropped to a circle, ~96 px).', 'aiproductthinking' ),
+		'description' => __( 'Upload a portrait that will replace the default monogram on the About page. Square images work best — it will be cropped to a circle and rendered at 250 px on desktop. Recommended source size: 500×500 px (2×) for sharp output on retina displays. Minimum: 250×250 px.', 'aiproductthinking' ),
 		'section'     => 'aipt_about_page',
 		'settings'    => 'aipt_founder_photo',
 	) ) );
