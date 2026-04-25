@@ -10,9 +10,24 @@
 	<div class="footer-inner">
 		<div class="footer-grid">
 			<div class="footer-brand">
-				<a class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" style="color:rgba(255,255,255,0.88)">
-					<span class="logo-dot"></span><?php bloginfo( 'name' ); ?>
-				</a>
+				<?php if ( function_exists( 'has_custom_logo' ) && has_custom_logo() ) : ?>
+					<a class="footer-logo-link" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+						<?php
+						$custom_logo_id = get_theme_mod( 'custom_logo' );
+						$logo_img       = wp_get_attachment_image(
+							$custom_logo_id,
+							'full',
+							false,
+							array( 'class' => 'footer-logo', 'alt' => get_bloginfo( 'name' ) )
+						);
+						echo $logo_img; // already escaped by wp_get_attachment_image
+						?>
+					</a>
+				<?php else : ?>
+					<a class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" style="color:rgba(255,255,255,0.88)">
+						<span class="logo-dot"></span><?php bloginfo( 'name' ); ?>
+					</a>
+				<?php endif; ?>
 				<p><?php echo esc_html( get_bloginfo( 'description' ) ); ?></p>
 				<p class="footer-tagline"><?php esc_html_e( 'Concept, research, and architecture — 2 years of founder-led R&D.', 'aiproductthinking' ); ?></p>
 			</div>

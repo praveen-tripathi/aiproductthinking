@@ -23,10 +23,12 @@ function aipt_setup() {
 	add_theme_support( 'automatic-feed-links' );
 	add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption', 'style', 'script' ) );
 	add_theme_support( 'custom-logo', array(
-		'height'      => 40,
-		'width'       => 200,
-		'flex-height' => true,
-		'flex-width'  => true,
+		'height'               => 80,
+		'width'                => 320,
+		'flex-height'          => true,
+		'flex-width'           => true,
+		'header-text'          => array( 'site-title', 'site-description' ),
+		'unlink-homepage-logo' => false,
 	) );
 	add_theme_support( 'responsive-embeds' );
 	add_theme_support( 'align-wide' );
@@ -110,6 +112,64 @@ function aipt_button( $label, $target, $class = 'btn btn-primary' ) {
 require_once AIPT_THEME_DIR . '/inc/demo-importer.php';
 
 /**
+ * Customizer settings — Contact Form section.
+ *
+ * Lets the site owner paste the Contact Form 7 form ID via
+ * Appearance > Customize > Contact Form, with no need to edit PHP.
+ */
+function aipt_customize_register( $wp_customize ) {
+	$wp_customize->add_section( 'aipt_contact_form', array(
+		'title'       => __( 'Contact Form', 'aiproductthinking' ),
+		'priority'    => 130,
+		'description' => __( 'Connect your Contact Form 7 form to the Contact page.', 'aiproductthinking' ),
+	) );
+
+	$wp_customize->add_setting( 'aipt_cf7_form_id', array(
+		'default'           => 'f7daf39',
+		'type'              => 'option',
+		'capability'        => 'edit_theme_options',
+		'sanitize_callback' => 'sanitize_text_field',
+	) );
+
+	$wp_customize->add_control( 'aipt_cf7_form_id', array(
+		'label'       => __( 'Contact Form 7 — Form ID', 'aiproductthinking' ),
+		'description' => __( 'Find this in Contact > Contact Forms. Copy the value of id="..." from the shortcode column (for example "f7daf39" or "123"). Leave blank to disable the CF7 shortcode.', 'aiproductthinking' ),
+		'section'     => 'aipt_contact_form',
+		'type'        => 'text',
+		'input_attrs' => array( 'placeholder' => 'f7daf39' ),
+	) );
+
+	$wp_customize->add_setting( 'aipt_cf7_form_title', array(
+		'default'           => 'Contact form 1',
+		'type'              => 'option',
+		'capability'        => 'edit_theme_options',
+		'sanitize_callback' => 'sanitize_text_field',
+	) );
+
+	$wp_customize->add_control( 'aipt_cf7_form_title', array(
+		'label'       => __( 'Contact Form 7 — Form Title', 'aiproductthinking' ),
+		'description' => __( 'Human-readable label, used by CF7 internally. Defaults to "Contact form 1".', 'aiproductthinking' ),
+		'section'     => 'aipt_contact_form',
+		'type'        => 'text',
+	) );
+}
+add_action( 'customize_register', 'aipt_customize_register' );
+
+/**
+ * Build the Contact Form 7 shortcode using the Customizer values.
+ *
+ * @return string Shortcode string, or empty if no ID is configured.
+ */
+function aipt_get_contact_form_shortcode() {
+	$id    = trim( (string) get_option( 'aipt_cf7_form_id', 'f7daf39' ) );
+	$title = trim( (string) get_option( 'aipt_cf7_form_title', 'Contact form 1' ) );
+	if ( '' === $id ) {
+		return '';
+	}
+	return sprintf( '[contact-form-7 id="%s" title="%s"]', esc_attr( $id ), esc_attr( $title ) );
+}
+
+/**
  * Body class additions.
  */
 function aipt_body_classes( $classes ) {
@@ -119,6 +179,14 @@ function aipt_body_classes( $classes ) {
 	return $classes;
 }
 add_filter( 'body_class', 'aipt_body_classes' );
+
+/**
+ * Add a class to the custom-logo wrapper anchor so it can be styled.
+ */
+function aipt_custom_logo_class( $html ) {
+	return str_replace( 'class="custom-logo-link"', 'class="custom-logo-link logo-link"', $html );
+}
+add_filter( 'get_custom_logo', 'aipt_custom_logo_class' );
 
 /**
  * Filter wp_nav_menu output for footer columns to drop the wrapping <ul>.
