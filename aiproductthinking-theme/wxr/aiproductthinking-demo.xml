@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+This is a WordPress eXtended RSS file generated for the AI Product Thinking theme.
+It contains the five core pages (Home, How It Works, Solution, About, Contact)
+with proper page templates and slug-based hierarchy.
+
+Import via: WordPress Admin → Tools → Import → WordPress (install the
+"WordPress Importer" plugin if prompted). When prompted, choose "Assign
+posts to an existing user" and check "Download and import file attachments"
+(no attachments are required by these pages, but the option is harmless).
+
+If a page with the same slug already exists, the WordPress Importer will
+SKIP it. To override an existing page, run the in-theme importer instead
+(Appearance → Import Demo Content), which performs a true upsert.
+-->
+<rss version="2.0"
+	xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:wp="http://wordpress.org/export/1.2/"
+>
+<channel>
+	<title>AI Product Thinking</title>
+	<link>https://example.com</link>
+	<description>Demo content for the AI Product Thinking WordPress theme.</description>
+	<pubDate>Sat, 25 Apr 2026 09:00:00 +0000</pubDate>
+	<language>en-US</language>
+	<wp:wxr_version>1.2</wp:wxr_version>
+	<wp:base_site_url>https://example.com</wp:base_site_url>
+	<wp:base_blog_url>https://example.com</wp:base_blog_url>
+
+	<wp:author>
+		<wp:author_id>1</wp:author_id>
+		<wp:author_login><![CDATA[admin]]></wp:author_login>
+		<wp:author_email><![CDATA[admin@example.com]]></wp:author_email>
+		<wp:author_display_name><![CDATA[admin]]></wp:author_display_name>
+		<wp:author_first_name><![CDATA[]]></wp:author_first_name>
+		<wp:author_last_name><![CDATA[]]></wp:author_last_name>
+	</wp:author>
+
+	<generator>https://wordpress.org/?v=6.6</generator>
+
+	<!-- ========== HOME ========== -->
+	<item>
+		<title>Home</title>
+		<link>https://example.com/</link>
+		<pubDate>Sat, 25 Apr 2026 09:00:00 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">https://example.com/?page_id=1001</guid>
+		<description></description>
+		<content:encoded><![CDATA[<!-- wp:paragraph -->
+<p>This page is rendered by the front-page.php template of the AI Product Thinking theme. The homepage is intentionally code-driven for design fidelity. To swap any block to editor-managed content, fork the front-page.php template.</p>
+<!-- /wp:paragraph -->]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>1001</wp:post_id>
+		<wp:post_date><![CDATA[2026-04-25 09:00:00]]></wp:post_date>
+		<wp:post_date_gmt><![CDATA[2026-04-25 09:00:00]]></wp:post_date_gmt>
+		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
+		<wp:ping_status><![CDATA[closed]]></wp:ping_status>
+		<wp:post_name><![CDATA[home]]></wp:post_name>
+		<wp:status><![CDATA[publish]]></wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type><![CDATA[page]]></wp:post_type>
+		<wp:post_password><![CDATA[]]></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_wp_page_template]]></wp:meta_key>
+			<wp:meta_value><![CDATA[default]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+
+	<!-- ========== HOW IT WORKS ========== -->
+	<item>
+		<title>How It Works</title>
+		<link>https://example.com/how-it-works/</link>
+		<pubDate>Sat, 25 Apr 2026 09:00:00 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">https://example.com/?page_id=1002</guid>
+		<description></description>
+		<content:encoded><![CDATA[<!-- wp:paragraph -->
+<p>Rendered by the How It Works template. Five-stage intelligence pipeline, six input categories, the Priority Conflict Detector, the Impact Simulator, and the four-layer architecture. Edit copy in the page-how-it-works.php template.</p>
+<!-- /wp:paragraph -->]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>1002</wp:post_id>
+		<wp:post_date><![CDATA[2026-04-25 09:00:00]]></wp:post_date>
+		<wp:post_date_gmt><![CDATA[2026-04-25 09:00:00]]></wp:post_date_gmt>
+		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
+		<wp:ping_status><![CDATA[closed]]></wp:ping_status>
+		<wp:post_name><![CDATA[how-it-works]]></wp:post_name>
+		<wp:status><![CDATA[publish]]></wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>10</wp:menu_order>
+		<wp:post_type><![CDATA[page]]></wp:post_type>
+		<wp:post_password><![CDATA[]]></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_wp_page_template]]></wp:meta_key>
+			<wp:meta_value><![CDATA[page-how-it-works.php]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+
+	<!-- ========== SOLUTION ========== -->
+	<item>
+		<title>Solution</title>
+		<link>https://example.com/solution/</link>
+		<pubDate>Sat, 25 Apr 2026 09:00:00 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">https://example.com/?page_id=1003</guid>
+		<description></description>
+		<content:encoded><![CDATA[<!-- wp:paragraph -->
+<p>Rendered by the Solution template. Market reality table, gap-vs-solution split, seven-module product suite, target personas, and KPI strip. Edit copy in the page-solution.php template.</p>
+<!-- /wp:paragraph -->]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>1003</wp:post_id>
+		<wp:post_date><![CDATA[2026-04-25 09:00:00]]></wp:post_date>
+		<wp:post_date_gmt><![CDATA[2026-04-25 09:00:00]]></wp:post_date_gmt>
+		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
+		<wp:ping_status><![CDATA[closed]]></wp:ping_status>
+		<wp:post_name><![CDATA[solution]]></wp:post_name>
+		<wp:status><![CDATA[publish]]></wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>20</wp:menu_order>
+		<wp:post_type><![CDATA[page]]></wp:post_type>
+		<wp:post_password><![CDATA[]]></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_wp_page_template]]></wp:meta_key>
+			<wp:meta_value><![CDATA[page-solution.php]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+
+	<!-- ========== ABOUT ========== -->
+	<item>
+		<title>About</title>
+		<link>https://example.com/about/</link>
+		<pubDate>Sat, 25 Apr 2026 09:00:00 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">https://example.com/?page_id=1004</guid>
+		<description></description>
+		<content:encoded><![CDATA[<!-- wp:paragraph -->
+<p>Rendered by the About template. Founder background, two-year R&amp;D timeline, transparency block, and what the founder is open to next. Edit copy in the page-about.php template.</p>
+<!-- /wp:paragraph -->]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>1004</wp:post_id>
+		<wp:post_date><![CDATA[2026-04-25 09:00:00]]></wp:post_date>
+		<wp:post_date_gmt><![CDATA[2026-04-25 09:00:00]]></wp:post_date_gmt>
+		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
+		<wp:ping_status><![CDATA[closed]]></wp:ping_status>
+		<wp:post_name><![CDATA[about]]></wp:post_name>
+		<wp:status><![CDATA[publish]]></wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>30</wp:menu_order>
+		<wp:post_type><![CDATA[page]]></wp:post_type>
+		<wp:post_password><![CDATA[]]></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_wp_page_template]]></wp:meta_key>
+			<wp:meta_value><![CDATA[page-about.php]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+
+	<!-- ========== CONTACT ========== -->
+	<item>
+		<title>Contact</title>
+		<link>https://example.com/contact/</link>
+		<pubDate>Sat, 25 Apr 2026 09:00:00 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">https://example.com/?page_id=1005</guid>
+		<description></description>
+		<content:encoded><![CDATA[<!-- wp:paragraph -->
+<p>Rendered by the Contact template. Includes a styled contact form scaffold; install Contact Form 7, WPForms, or Fluent Forms and set the aipt_cf7_form_id option to enable real submissions.</p>
+<!-- /wp:paragraph -->]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>1005</wp:post_id>
+		<wp:post_date><![CDATA[2026-04-25 09:00:00]]></wp:post_date>
+		<wp:post_date_gmt><![CDATA[2026-04-25 09:00:00]]></wp:post_date_gmt>
+		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
+		<wp:ping_status><![CDATA[closed]]></wp:ping_status>
+		<wp:post_name><![CDATA[contact]]></wp:post_name>
+		<wp:status><![CDATA[publish]]></wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>40</wp:menu_order>
+		<wp:post_type><![CDATA[page]]></wp:post_type>
+		<wp:post_password><![CDATA[]]></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_wp_page_template]]></wp:meta_key>
+			<wp:meta_value><![CDATA[page-contact.php]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+
+</channel>
+</rss>
