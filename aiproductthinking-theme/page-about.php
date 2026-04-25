@@ -114,8 +114,8 @@ $hiw_url     = $hiw ? get_permalink( $hiw->ID ) : '#';
 						src="<?php echo esc_url( $founder_photo ); ?>"
 						alt="<?php esc_attr_e( 'Founder portrait', 'aiproductthinking' ); ?>"
 						loading="lazy"
-						onerror="this.outerHTML='<div class=\'founder-av\'>PT</div>'">
-					<h3><?php esc_html_e( 'Founder', 'aiproductthinking' ); ?></h3>
+						onerror="this.outerHTML='<div class=\'founder-av\'>MM</div>'">
+					<h3><?php esc_html_e( 'Manish Mishra', 'aiproductthinking' ); ?></h3>
 					<p><?php esc_html_e( 'Product Leader & AI Platform Conceptualist', 'aiproductthinking' ); ?></p>
 					<div class="fstat-row">
 						<div class="fstat"><span class="fstat-v">10+</span><span class="fstat-l"><?php esc_html_e( 'Years in Product', 'aiproductthinking' ); ?></span></div>
