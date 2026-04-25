@@ -1,0 +1,55 @@
+<!--
+  Contact Form 7 template for the AI Product Thinking theme.
+  -------------------------------------------------------------
+  How to use:
+    1. Install and activate the "Contact Form 7" plugin.
+    2. Go to: Contact > Add New (or open the existing "Contact form 1").
+    3. Open the "Form" tab and replace its contents with the markup
+       between the BEGIN/END markers below.
+    4. Open the "Mail" tab and confirm [your-name], [your-email],
+       [your-subject], [your-message] are referenced in the recipient
+       template (they are by default).
+    5. Save. The shortcode in page-contact.php expects ID "f7daf39"
+       and title "Contact form 1" — if your form has a different ID,
+       open page-contact.php and update the shortcode line.
+
+  Note: Contact Form 7 wraps every <label> in <p> tags automatically,
+  which the theme styles with .form-group spacing. The matching CSS
+  block lives in style.css under "Contact Form 7 styling".
+-->
+
+==== BEGIN CF7 FORM TEMPLATE ====
+
+<label> Your name
+    [text* your-name autocomplete:name placeholder "Your name"] </label>
+
+<label> Your email
+    [email* your-email autocomplete:email placeholder "you@company.com"] </label>
+
+<label> Subject
+    [text* your-subject placeholder "What is this about?"] </label>
+
+<label> Your message (optional)
+    [textarea your-message placeholder "Tell me about your perspective on this space, your background, or what kind of conversation you'd like to have…"] </label>
+
+[submit "Submit"]
+
+==== END CF7 FORM TEMPLATE ====
+
+
+Optional — recommended Mail tab values
+--------------------------------------
+To:           your-email@yourdomain.com
+From:         [your-name] <wordpress@yourdomain.com>
+Subject:      [your-subject]
+Additional headers:
+              Reply-To: [your-email]
+Message body:
+              From: [your-name] <[your-email]>
+              Subject: [your-subject]
+
+              Message:
+              [your-message]
+
+              --
+              Sent from the contact form on (https://yourdomain.com)

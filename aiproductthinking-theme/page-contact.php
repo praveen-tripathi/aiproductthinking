@@ -25,44 +25,45 @@ get_header();
 
 				<?php
 				/**
-				 * If a Contact Form 7 form is set in the theme's [aipt_contact_form_id] option,
-				 * render its shortcode. Otherwise render the static styled form (will need
-				 * a plugin or custom handler to actually deliver the message).
+				 * Render the Contact Form 7 form. The form ID and title are read
+				 * from the Customizer (Appearance > Customize > Contact Form);
+				 * defaults are id="f7daf39" title="Contact form 1". If CF7 is
+				 * not installed, fall back to a styled static form.
 				 */
-				$cf7_id = get_option( 'aipt_cf7_form_id', '' );
-				if ( $cf7_id && shortcode_exists( 'contact-form-7' ) ) {
-					echo do_shortcode( '[contact-form-7 id="' . esc_attr( $cf7_id ) . '"]' );
+				$cf7_shortcode = function_exists( 'aipt_get_contact_form_shortcode' ) ? aipt_get_contact_form_shortcode() : '';
+				if ( $cf7_shortcode && shortcode_exists( 'contact-form-7' ) ) {
+					echo do_shortcode( $cf7_shortcode );
 				} else {
 					?>
-					<form id="aipt-contact-form" method="post" action="#" novalidate>
+					<form id="aipt-contact-form" class="aipt-contact-fallback" method="post" action="#" novalidate>
 						<div class="form-group">
-							<label for="f-name"><?php esc_html_e( 'Full Name', 'aiproductthinking' ); ?></label>
-							<input type="text" id="f-name" name="f_name" placeholder="<?php esc_attr_e( 'Your name', 'aiproductthinking' ); ?>" required>
+							<label for="f-name"><?php esc_html_e( 'Your name', 'aiproductthinking' ); ?></label>
+							<input type="text" id="f-name" name="f_name" placeholder="<?php esc_attr_e( 'Your name', 'aiproductthinking' ); ?>" autocomplete="name" required>
 						</div>
 						<div class="form-group">
-							<label for="f-email"><?php esc_html_e( 'Email Address', 'aiproductthinking' ); ?></label>
-							<input type="email" id="f-email" name="f_email" placeholder="you@company.com" required>
+							<label for="f-email"><?php esc_html_e( 'Your email', 'aiproductthinking' ); ?></label>
+							<input type="email" id="f-email" name="f_email" placeholder="you@company.com" autocomplete="email" required>
 						</div>
 						<div class="form-group">
-							<label><?php esc_html_e( "I'm reaching out as", 'aiproductthinking' ); ?></label>
-							<div class="radio-group">
-								<?php
-								$roles = array( 'Investor', 'Technical Co-founder', 'Strategic Partner', 'Product Leader', 'Advisor', 'Recruiter', 'Other' );
-								foreach ( $roles as $role ) {
-									printf( '<button type="button" class="rbtn">%s</button>', esc_html( $role ) );
-								}
-								?>
-							</div>
-							<input type="hidden" id="f-role" name="f_role" value="">
+							<label for="f-subject"><?php esc_html_e( 'Subject', 'aiproductthinking' ); ?></label>
+							<input type="text" id="f-subject" name="f_subject" placeholder="<?php esc_attr_e( 'What is this about?', 'aiproductthinking' ); ?>" required>
 						</div>
 						<div class="form-group">
-							<label for="f-message"><?php esc_html_e( 'What would you like to explore?', 'aiproductthinking' ); ?></label>
-							<textarea id="f-message" name="f_message" placeholder="<?php esc_attr_e( "Tell me about your perspective on this space, your background, or what kind of conversation you'd like to have…", 'aiproductthinking' ); ?>" required></textarea>
+							<label for="f-message"><?php esc_html_e( 'Your message (optional)', 'aiproductthinking' ); ?></label>
+							<textarea id="f-message" name="f_message" placeholder="<?php esc_attr_e( "Tell me about your perspective on this space, your background, or what kind of conversation you'd like to have…", 'aiproductthinking' ); ?>"></textarea>
 						</div>
-						<button type="submit" class="btn btn-primary" style="width:100%;justify-content:center"><?php esc_html_e( 'Send Message →', 'aiproductthinking' ); ?></button>
+						<button type="submit" class="btn btn-primary" style="width:100%;justify-content:center"><?php esc_html_e( 'Submit', 'aiproductthinking' ); ?></button>
 						<div class="form-ok" id="form-ok"><?php esc_html_e( "✓ Thank you — your message has been received. I'll respond personally within 48 hours.", 'aiproductthinking' ); ?></div>
 					</form>
-					<p style="margin-top:1rem;font-size:0.78rem;color:var(--ink-3)"><?php esc_html_e( 'Note: install Contact Form 7, WPForms, or Fluent Forms to enable real submissions, then set the form ID via the aipt_cf7_form_id option.', 'aiproductthinking' ); ?></p>
+					<p style="margin-top:1rem;font-size:0.78rem;color:var(--ink-3)">
+						<?php
+						printf(
+							/* translators: %s: file path of the CF7 template inside the theme */
+							esc_html__( 'Install the Contact Form 7 plugin and import the template at %s to activate this form.', 'aiproductthinking' ),
+							'<code>assets/contact-form-7-template.txt</code>'
+						);
+						?>
+					</p>
 					<?php
 				}
 				?>

@@ -65,19 +65,50 @@ Each page is intentionally code-driven for design fidelity. To edit headlines, s
 
 For non-developer editing, you can later port any section into ACF Repeater fields and render them from the page's editor. The current templates are `__()`-wrapped, so you can also translate via Loco Translate or WPML.
 
-## Contact form
+## Site logo (Customizer)
 
-The Contact page ships with a fully styled form scaffold. To enable real submissions:
+The header and footer auto-render a logo uploaded via **Appearance → Customize → Site Identity → Logo**. The recommended dimensions are around **320×80 px** (PNG/SVG with transparent background). When no logo is set, the header falls back to the wordmark `aiproductthinking` with a gold pulse dot.
 
-1. Install **Contact Form 7**, **WPForms**, or **Fluent Forms**.
-2. Build your form and copy its ID.
-3. Set the option:
+Behavior:
+- **Header**: shows the uploaded logo at 40 px tall (32 px on mobile) inside the existing 66 px nav bar.
+- **Footer**: same logo, tinted white via `filter: brightness(0) invert(1)` so it reads on the dark background. Already-white logos look correct as-is.
 
-```php
-update_option( 'aipt_cf7_form_id', '123' ); // CF7 form ID
+## Contact form (Contact Form 7)
+
+The Contact page is wired to the **Contact Form 7** plugin. The form ID is configurable via the Customizer — there is no need to edit any PHP file.
+
+### Setup
+
+1. Install and activate the [Contact Form 7](https://wordpress.org/plugins/contact-form-7/) plugin.
+2. Go to **Contact → Contact Forms**, open your default form (or create a new one called *Contact form 1*).
+3. Copy the markup from `assets/contact-form-7-template.txt` (between the `BEGIN`/`END` markers) into the **Form** tab and save:
+
+```
+<label> Your name
+    [text* your-name autocomplete:name placeholder "Your name"] </label>
+
+<label> Your email
+    [email* your-email autocomplete:email placeholder "you@company.com"] </label>
+
+<label> Subject
+    [text* your-subject placeholder "What is this about?"] </label>
+
+<label> Your message (optional)
+    [textarea your-message placeholder "Tell me about your perspective on this space, your background, or what kind of conversation you'd like to have…"] </label>
+
+[submit "Submit"]
 ```
 
-Or just paste a `[contact-form-7 id="123"]` shortcode into a fork of `page-contact.php`.
+4. Confirm the **Mail** tab maps `[your-name]`, `[your-email]`, `[your-subject]`, `[your-message]` to your inbox.
+5. Open `Contact → Contact Forms` and copy the **id** value from the shortcode column. CF7 shortcodes look like `[contact-form-7 id="f7daf39" title="Contact form 1"]` — copy the part between `id="` and `"`.
+6. Go to `Appearance → Customize → Contact Form` and paste:
+    - **Contact Form 7 — Form ID**: e.g. `f7daf39` (default), `123`, or whatever your form's ID is.
+    - **Contact Form 7 — Form Title**: e.g. `Contact form 1` (default).
+7. Click **Publish**. The contact page now renders your form.
+
+> **Where to find the ID**: WordPress admin → `Contact → Contact Forms`. The shortcode column shows `[contact-form-7 id="…" title="…"]` for each form. Copy the `id` value into the Customizer field.
+
+The theme ships with full CF7 styling that matches the rest of the page (forest-green submit button, focus states, validation messages, success/error banners). When CF7 is not installed, `page-contact.php` falls back to a static styled form with the same four fields so the page is never broken.
 
 ## Fonts and design tokens
 

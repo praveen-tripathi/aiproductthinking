@@ -19,9 +19,15 @@
 
 <header class="site-header">
 	<div class="nav-inner">
-		<a class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>">
-			<span class="logo-dot"></span><?php bloginfo( 'name' ); ?>
-		</a>
+		<?php if ( function_exists( 'has_custom_logo' ) && has_custom_logo() ) : ?>
+			<div class="site-branding has-custom-logo">
+				<?php the_custom_logo(); ?>
+			</div>
+		<?php else : ?>
+			<a class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+				<span class="logo-dot" aria-hidden="true"></span><?php bloginfo( 'name' ); ?>
+			</a>
+		<?php endif; ?>
 
 		<?php
 		if ( has_nav_menu( 'primary' ) ) {
