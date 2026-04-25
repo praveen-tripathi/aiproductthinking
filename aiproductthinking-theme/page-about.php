@@ -94,8 +94,28 @@ $hiw_url     = $hiw ? get_permalink( $hiw->ID ) : '#';
 
 			<div>
 				<div class="founder-card">
-					<div class="founder-av">PT</div>
-					<h3><?php esc_html_e( 'Founder', 'aiproductthinking' ); ?></h3>
+					<?php
+					/**
+					 * Founder photo.
+					 *
+					 * Source priority:
+					 *  1. Customizer setting `aipt_founder_photo` (Appearance > Customize > Founder Photo).
+					 *  2. Default uploaded image at /wp-content/uploads/2026/04/WhatsApp-Image-2026-04-25-at-17.48.24.jpeg
+					 *     (the user-uploaded photo on aiproductthinking.com).
+					 *
+					 * Falls back to the original "PT" monogram avatar if the image fails to load.
+					 */
+					$founder_photo = trim( (string) get_theme_mod( 'aipt_founder_photo', '' ) );
+					if ( '' === $founder_photo ) {
+						$founder_photo = content_url( '/uploads/2026/04/WhatsApp-Image-2026-04-25-at-17.48.24.jpeg' );
+					}
+					?>
+					<img class="founder-av founder-av-img"
+						src="<?php echo esc_url( $founder_photo ); ?>"
+						alt="<?php esc_attr_e( 'Founder portrait', 'aiproductthinking' ); ?>"
+						loading="lazy"
+						onerror="this.outerHTML='<div class=\'founder-av\'>MM</div>'">
+					<h3><?php esc_html_e( 'Manish Mishra', 'aiproductthinking' ); ?></h3>
 					<p><?php esc_html_e( 'Product Leader & AI Platform Conceptualist', 'aiproductthinking' ); ?></p>
 					<div class="fstat-row">
 						<div class="fstat"><span class="fstat-v">10+</span><span class="fstat-l"><?php esc_html_e( 'Years in Product', 'aiproductthinking' ); ?></span></div>

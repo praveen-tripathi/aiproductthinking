@@ -258,6 +258,7 @@ p { color: var(--ink-2); line-height: 1.72; }
 .about-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; align-items: start; }
 .founder-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; text-align: center; position: sticky; top: 80px; }
 .founder-av { width: 72px; height: 72px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #fff; font-family: 'Fraunces', serif; font-size: 1.75rem; font-weight: 300; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; }
+img.founder-av-img { display: block; width: 96px; height: 96px; border-radius: 50%; object-fit: cover; object-position: center top; background: var(--accent-light); border: 2px solid #fff; box-shadow: 0 4px 16px rgba(26,24,20,0.10); padding: 0; }
 .founder-card h3 { margin-bottom: 0.3rem; font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 600; }
 .founder-card p { font-size: 0.82rem; color: var(--ink-3); }
 .flinks { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; }
